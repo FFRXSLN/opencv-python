@@ -1,59 +1,59 @@
-[![Downloads](http://pepy.tech/badge/opencv-python)](http://pepy.tech/project/opencv-python)
+[![İndirilenler](http://pepy.tech/badge/opencv-python)](http://pepy.tech/project/opencv-python)
 
-## OpenCV on Wheels
+##  OpenCV
 
-Pre-built CPU-only OpenCV packages for Python.
+Python için önceden oluşturulmuş CPU-only OpenCV paketleri.
 
-Check the manual build section if you wish to compile the bindings from source to enable additional modules such as CUDA.
+CUDA gibi ek modülleri etkinleştirmek için bağlamaları kaynaktan derlemek istiyorsanız manuel derleme bölümünü kontrol edin.
 
-### Installation and Usage
+### Kurulum ve Kullanım
 
-1. If you have previous/other manually installed (= not installed via ``pip``) version of OpenCV installed (e.g. cv2 module in the root of Python's site-packages), remove it before installation to avoid conflicts.
-2. Make sure that your `pip` version is up-to-date (19.3 is the minimum supported version): `pip install --upgrade pip`. Check version with `pip -V`. For example Linux distributions ship usually with very old `pip` versions which cause a lot of unexpected problems especially with the `manylinux` format.
-3. Select the correct package for your environment:
+1. OpenCV'nin önceki/diğer manuel olarak yüklenmiş (= ``pip`` ile yüklenmemiş) sürümü yüklüyse (örneğin Python'un site-packages kök dizinindeki cv2 modülü), çakışmaları önlemek için kurulumdan önce kaldırın.
+2. pip` sürümünüzün güncel olduğundan emin olun (19.3 desteklenen minimum sürümdür): pip install --upgrade pip`. Pip -V` ile sürümü kontrol edin. Örneğin Linux dağıtımları genellikle çok eski `pip` sürümleriyle birlikte gelir ve bu da özellikle `manylinux` formatında beklenmedik sorunlara neden olur.
+3. Ortamınız için doğru paketi seçin:
 
-    There are four different packages (see options 1, 2, 3 and 4 below) and you should **SELECT ONLY ONE OF THEM**. Do not install multiple different packages in the same environment. There is no plugin architecture: all the packages use the same namespace (`cv2`). If you installed multiple different packages in the same environment, uninstall them all with ``pip uninstall`` and reinstall only one package.
+    Dört farklı paket vardır (aşağıdaki 1, 2, 3 ve 4 numaralı seçeneklere bakın) ve **BUNLARDAN SADECE BİRİNİ** SEÇMELİSİNİZ. Aynı ortama birden fazla farklı paket yüklemeyin. Eklenti mimarisi yoktur: tüm paketler aynı ad alanını (`cv2`) kullanır. Aynı ortama birden fazla farklı paket yüklediyseniz, hepsini ``pip uninstall`` ile kaldırın ve yalnızca bir paketi yeniden yükleyin.
 
-    **a.** Packages for standard desktop environments (Windows, macOS, almost any GNU/Linux distribution)
+    **a.** Standart masaüstü ortamları için paketler (Windows, macOS, neredeyse tüm GNU/Linux dağıtımları)
 
-    - Option 1 - Main modules package: ``pip install opencv-python``
-    - Option 2 - Full package (contains both main modules and contrib/extra modules): ``pip install opencv-contrib-python`` (check contrib/extra modules listing from [OpenCV documentation](https://docs.opencv.org/master/))
+    - Seçenek 1 - Ana modül paketi: ``pip install opencv-python``
+    - Seçenek 2 - Tam paket (hem ana modülleri hem de contrib/extra modüllerini içerir): ``pip install opencv-contrib-python`` ([OpenCV belgeleri](https://docs.opencv.org/master/) adresindeki contrib/extra modülleri listesini kontrol edin)
 
-    **b.** Packages for server (headless) environments (such as Docker, cloud environments etc.), no GUI library dependencies
+    **b.** Sunucu (headless) ortamlar için paketler (Docker, bulut ortamları vb. gibi), GUI kütüphane bağımlılıkları yok
 
-    These packages are smaller than the two other packages above because they do not contain any GUI functionality (not compiled with Qt / other GUI components). This means that the packages avoid a heavy dependency chain to X11 libraries and you will have for example smaller Docker images as a result. You should always use these packages if you do not use `cv2.imshow` et al. or you are using some other package (such as PyQt) than OpenCV to create your GUI.
+    Bu paketler yukarıdaki diğer iki paketten daha küçüktür çünkü herhangi bir GUI işlevi içermezler (Qt / diğer GUI bileşenleri ile derlenmezler). Bu, paketlerin X11 kütüphanelerine ağır bir bağımlılık zincirinden kaçındığı ve sonuç olarak örneğin daha küçük Docker görüntülerine sahip olacağınız anlamına gelir. Eğer `cv2.imshow` ve diğerlerini kullanmıyorsanız veya GUI'nizi oluşturmak için OpenCV'den başka bir paket (PyQt gibi) kullanıyorsanız bu paketleri her zaman kullanmalısınız.
 
-    - Option 3 - Headless main modules package: ``pip install opencv-python-headless``
-    - Option 4 - Headless full package (contains both main modules and contrib/extra modules): ``pip install opencv-contrib-python-headless`` (check contrib/extra modules listing from [OpenCV documentation](https://docs.opencv.org/master/))
+    - Seçenek 3 - Headless ana modül paketi: ``pip install opencv-python-headless``
+    - Seçenek 4 - Headless tam paket (hem ana modülleri hem de contrib/extra modüllerini içerir): ``pip install opencv-contrib-python-headless`` ([OpenCV documentation](https://docs.opencv.org/master/) adresinden contrib/extra modules listesini kontrol edin)
 
-4. Import the package:
+4. Paketi içe aktarın:
 
     ``import cv2``
 
-    All packages contain Haar cascade files. ``cv2.data.haarcascades`` can be used as a shortcut to the data folder. For example:
+    Tüm paketler Haar kaskad dosyalarını içerir. ``cv2.data.haarcascades`` veri klasörüne kısayol olarak kullanılabilir. Örneğin:
 
     ``cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")``
 
-5. Read [OpenCV documentation](https://docs.opencv.org/master/)
+5. OpenCV belgelerini okuyun](https://docs.opencv.org/master/)
 
-6. Before opening a new issue, read the FAQ below and have a look at the other issues which are already open.
+6. Yeni bir sorun açmadan önce aşağıdaki SSS bölümünü okuyun ve halihazırda açık olan diğer sorunlara göz atın.
 
-Frequently Asked Questions
+Sıkça Sorulan Soruları
 --------------------------
 
-**Q: Do I need to install also OpenCV separately?**
+**S: OpenCV'yi ayrıca yüklemem gerekiyor mu?
 
-A: No, the packages are special wheel binary packages and they already contain statically built OpenCV binaries.
+C: Hayır, paketler özel tekerlek ikili paketleridir ve zaten statik olarak oluşturulmuş OpenCV ikili dosyalarını içerirler.
 
-**Q: Pip install fails with ``ModuleNotFoundError: No module named 'skbuild'``?**
+**S: Pip kurulumu ``ModuleNotFoundError: 'skbuild'` adında bir modül yok?
 
-Since ``opencv-python`` version 4.3.0.\*, ``manylinux1`` wheels were replaced by ``manylinux2014`` wheels. If your pip is too old, it will try to use the new source distribution introduced in 4.3.0.38 to manually build OpenCV because it does not know how to install ``manylinux2014`` wheels. However, source build will also fail because of too old ``pip`` because it does not understand build dependencies in ``pyproject.toml``. To use the new ``manylinux2014`` pre-built wheels (or to build from source), your ``pip`` version must be >= 19.3. Please upgrade ``pip`` with ``pip install --upgrade pip``.
+OpenCV-python`` 4.3.0.\* sürümünden bu yana, ``manylinux1`` tekerlekleri ``manylinux2014`` tekerlekleri ile değiştirildi. Eğer pip'iniz çok eskiyse, OpenCV'yi elle derlemek için 4.3.0.38'de sunulan yeni kaynak dağıtımını kullanmaya çalışacaktır çünkü ``manylinux2014`` tekerleklerini nasıl kuracağını bilmemektedir. Ancak, ``pyproject.toml`` içindeki derleme bağımlılıklarını anlamadığı için çok eski ``pip`` nedeniyle kaynak derleme de başarısız olacaktır. Yeni ``manylinux2014`` önceden oluşturulmuş tekerlekleri kullanmak için (veya kaynaktan derlemek için), ``pip`` sürümünüz >= 19.3 olmalıdır. Lütfen ``pip`` sürümünü ``pip install --upgrade pip`` ile yükseltin.
 
-**Q: Import fails on Windows: ``ImportError: DLL load failed: The specified module could not be found.``?**
+**S: Windows'ta içe aktarma başarısız oluyor: ``ImportError: DLL yüklemesi başarısız oldu: Belirtilen modül bulunamadı``?
 
-A: If the import fails on Windows, make sure you have [Visual C++ redistributable 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145) installed. If you are using older Windows version than Windows 10 and latest system updates are not installed, [Universal C Runtime](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows) might be also required.
+C: Windows'ta içe aktarma başarısız olursa, [Visual C++ redistributable 2015] (https://www.microsoft.com/en-us/download/details.aspx?id=48145) yüklü olduğundan emin olun. Windows 10'dan daha eski bir Windows sürümü kullanıyorsanız ve en son sistem güncellemeleri yüklü değilse, [Universal C Runtime](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows) da gerekli olabilir.
 
-Windows N and KN editions do not include Media Feature Pack which is required by OpenCV. If you are using Windows N or KN edition, please install also [Windows Media Feature Pack](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions).
+Windows N ve KN sürümleri OpenCV tarafından gerekli olan Medya Özellik Paketini içermez. Windows N veya KN sürümü kullanıyorsanız, lütfen [Windows Media Feature Pack](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)'i de yükleyin.
 
 If you have Windows Server 2012+, media DLLs are probably missing too; please install the Feature called "Media Foundation" in the Server Manager. Beware, some posts advise to install "Windows Server Essentials Media Pack", but this one requires the "Windows Server Essentials Experience" role, and this role will deeply affect your Windows Server configuration (by enforcing active directory integration etc.); so just installing the "Media Foundation" should be a safer choice.
 
@@ -119,37 +119,37 @@ Steps 1--4 are handled by ``pip wheel``.
 
 The build can be customized with environment variables. In addition to any variables that OpenCV's build accepts, we recognize:
 
-- ``CI_BUILD``. Set to ``1`` to emulate the CI environment build behaviour. Used only in CI builds to force certain build flags on in ``setup.py``. Do not use this unless you know what you are doing.
-- ``ENABLE_CONTRIB`` and ``ENABLE_HEADLESS``. Set to ``1`` to build the contrib and/or headless version
-- ``ENABLE_JAVA``, Set to ``1`` to enable the Java client build.  This is disabled by default.
-- ``CMAKE_ARGS``. Additional arguments for OpenCV's CMake invocation. You can use this to make a custom build.
+ ``CI_BUILD``. CI ortamı derleme davranışını taklit etmek için ``1`` olarak ayarlayın. Sadece CI derlemelerinde ``setup.py`` içinde belirli derleme bayraklarını zorlamak için kullanılır. Ne yaptığınızı bilmiyorsanız bunu kullanmayın.
+- ENABLE_CONTRIB`` ve ``ENABLE_HEADLESS``. Contrib ve/veya headless sürümünü derlemek için ``1`` olarak ayarlayın
+- ``ENABLE_JAVA``, Java istemci yapısını etkinleştirmek için ``1`` olarak ayarlayın.  Bu varsayılan olarak devre dışıdır.
+- ``CMAKE_ARGS``. OpenCV'nin CMake çağrısı için ek argümanlar. Bunu özel bir derleme yapmak için kullanabilirsiniz.
 
-See the next section for more info about manual builds outside the CI environment.
+CI ortamı dışında manuel derlemeler hakkında daha fazla bilgi için bir sonraki bölüme bakın.
 
-### Manual builds
+### Manuel derlemeler
 
-If some dependency is not enabled in the pre-built wheels, you can also run the build locally to create a custom wheel.
+Önceden oluşturulmuş tekerleklerde bazı bağımlılıklar etkinleştirilmemişse, özel bir tekerlek oluşturmak için derlemeyi yerel olarak da çalıştırabilirsiniz.
 
-1. Clone this repository: `git clone --recursive https://github.com/opencv/opencv-python.git`
+1. Bu depoyu klonlayın: `git clone --recursive https://github.com/opencv/opencv-python.git`
 2. ``cd opencv-python``
-    - you can use `git` to checkout some other version of OpenCV in the `opencv` and `opencv_contrib` submodules if needed
-3. Add custom Cmake flags if needed, for example: `export CMAKE_ARGS="-DSOME_FLAG=ON -DSOME_OTHER_FLAG=OFF"` (in Windows you need to set environment variables differently depending on Command Line or PowerShell)
-4. Select the package flavor which you wish to build with `ENABLE_CONTRIB` and `ENABLE_HEADLESS`: i.e. `export ENABLE_CONTRIB=1` if you wish to build `opencv-contrib-python`
-5. Run ``pip wheel . --verbose``. NOTE: make sure you have the latest ``pip`` version, the ``pip wheel`` command replaces the old ``python setup.py bdist_wheel`` command which does not support ``pyproject.toml``.
-    - this might take anything from 5 minutes to over 2 hours depending on your hardware
-6. You'll have the wheel file in the `dist` folder and you can do with that whatever you wish
-    - Optional: on Linux use some of the `manylinux` images as a build hosts if maximum portability is needed and run `auditwheel` for the wheel after build
-    - Optional: on macOS use ``delocate`` (same as ``auditwheel`` but for macOS) for better portability
+    - Gerekirse `opencv` ve `opencv_contrib` alt modüllerinde OpenCV'nin başka bir sürümünü kontrol etmek için `git` kullanabilirsiniz
+3. Gerekirse özel Cmake bayrakları ekleyin, örneğin: `export CMAKE_ARGS="-DSOME_FLAG=ON -DSOME_OTHER_FLAG=OFF"` (Windows'ta Komut Satırı veya PowerShell'e bağlı olarak ortam değişkenlerini farklı şekilde ayarlamanız gerekir)
+4. ENABLE_CONTRIB` ve `ENABLE_HEADLESS` ile oluşturmak istediğiniz paket türünü seçin: örneğin, `opencv-contrib-python` oluşturmak istiyorsanız `export ENABLE_CONTRIB=1`
+5. Çalıştır ``pip wheel . --verbose`` komutunu çalıştırın. NOT: En son ``pip`` sürümüne sahip olduğunuzdan emin olun, ``pip wheel`` komutu ``pyproject.toml`` dosyasını desteklemeyen eski ``python setup.py bdist_wheel`` komutunun yerini alır.
+    - Bu işlem donanımınıza bağlı olarak 5 dakika ile 2 saat arasında sürebilir
+6. Tekerlek dosyası `dist` klasöründe olacak ve bununla dilediğinizi yapabilirsiniz
+    - İsteğe bağlı: Linux'ta maksimum taşınabilirlik gerekiyorsa derleme ana bilgisayarı olarak `manylinux` görüntülerinden bazılarını kullanın ve derlemeden sonra tekerlek için `auditwheel` çalıştırın
+    - İsteğe bağlı: macOS'ta daha iyi taşınabilirlik için ``delocate`` (``auditwheel`` ile aynı ancak macOS için) kullanın
 
-#### Manual debug builds
+#### Manuel hata ayıklama derlemeleri
 
-In order to build `opencv-python` in an unoptimized debug build, you need to side-step the normal process a bit.
+Optimize edilmemiş bir hata ayıklama derlemesinde `opencv-python` derlemek için, normal süreçten biraz sapmanız gerekir.
 
-1. Install the packages `scikit-build` and `numpy` via pip.
-2. Run the command `python setup.py bdist_wheel --build-type=Debug`.
-3. Install the generated wheel file in the `dist/` folder with `pip install dist/wheelname.whl`.
+1. Pip aracılığıyla `scikit-build` ve `numpy` paketlerini yükleyin.
+2. python setup.py bdist_wheel --build-type=Debug` komutunu çalıştırın.
+3. Oluşturulan tekerlek dosyasını `pip install dist/wheelname.whl` ile `dist/` klasörüne yükleyin.
 
-If you would like the build produce all compiler commands, then the following combination of flags and environment variables has been tested to work on Linux:
+Derlemenin tüm derleyici komutlarını üretmesini istiyorsanız, aşağıdaki bayrak ve ortam değişkenleri kombinasyonunun Linux üzerinde çalıştığı test edilmiştir:
 ```
 export CMAKE_ARGS='-DCMAKE_VERBOSE_MAKEFILE=ON'
 export VERBOSE=1
@@ -157,64 +157,63 @@ export VERBOSE=1
 python3 setup.py bdist_wheel --build-type=Debug
 ```
 
-See this issue for more discussion: https://github.com/opencv/opencv-python/issues/424
+Daha fazla tartışma için bu sayıya bakınız: https://github.com/opencv/opencv-python/issues/424
 
-#### Source distributions
+#### Kaynak dağıtımları
 
-Since OpenCV version 4.3.0, also source distributions are provided in PyPI. This means that if your system is not compatible with any of the wheels in PyPI, ``pip`` will attempt to build OpenCV from sources. If you need a OpenCV version which is not available in PyPI as a source distribution, please follow the manual build guidance above instead of this one.
+OpenCV 4.3.0 sürümünden bu yana, PyPI'da kaynak dağıtımları da sağlanmaktadır. Bu, sisteminizin PyPI'daki tekerleklerden herhangi biriyle uyumlu olmadığı anlamına gelir, ``pip`` OpenCV'yi kaynaklardan oluşturmaya çalışacaktır. PyPI'da kaynak dağıtım olarak bulunmayan bir OpenCV sürümüne ihtiyacınız varsa, lütfen bunun yerine yukarıdaki manuel derleme kılavuzunu izleyin.
 
-You can also force ``pip`` to build the wheels from the source distribution. Some examples:
+Ayrıca ``pip``i tekerlekleri kaynak dağıtımdan oluşturmaya zorlayabilirsiniz. Bazı örnekler:
 
 - ``pip install --no-binary opencv-python opencv-python``
 - ``pip install --no-binary :all: opencv-python``
 
-If you need contrib modules or headless version, just change the package name (step 4 in the previous section is not needed). However, any additional CMake flags can be provided via environment variables as described in step 3 of the manual build section. If none are provided, OpenCV's CMake scripts will attempt to find and enable any suitable dependencies. Headless distributions have hard coded CMake flags which disable all possible GUI dependencies.
+Eğer contrib modüllerine veya headless sürümüne ihtiyacınız varsa, sadece paket adını değiştirin (önceki bölümdeki 4. adım gerekli değildir). Bununla birlikte, herhangi bir ek CMake bayrağı, manuel derleme bölümünün 3. adımında açıklandığı gibi ortam değişkenleri aracılığıyla sağlanabilir. Hiçbiri sağlanmamışsa, OpenCV'nin CMake komut dosyaları uygun bağımlılıkları bulmaya ve etkinleştirmeye çalışacaktır. Headless dağıtımları, tüm olası GUI bağımlılıklarını devre dışı bırakan sabit kodlanmış CMake bayraklarına sahiptir.
 
-On slow systems such as Raspberry Pi the full build may take several hours. On a 8-core Ryzen 7 3700X the build takes about 6 minutes.
+Raspberry Pi gibi yavaş sistemlerde tam derleme birkaç saat sürebilir. 8 çekirdekli Ryzen 7 3700X üzerinde derleme yaklaşık 6 dakika sürer.
 
-### Licensing
+### Lisanslama
 
-Opencv-python package (scripts in this repository) is available under MIT license.
+Opencv-python paketi (bu depodaki betikler) MIT lisansı altında mevcuttur.
 
-OpenCV itself is available under [Apache 2](https://github.com/opencv/opencv/blob/master/LICENSE) license.
+OpenCV'nin kendisi [Apache 2](https://github.com/opencv/opencv/blob/master/LICENSE) lisansı altında mevcuttur.
 
-Third party package licenses are at [LICENSE-3RD-PARTY.txt](https://github.com/opencv/opencv-python/blob/master/LICENSE-3RD-PARTY.txt).
+Üçüncü taraf paket lisansları [LICENSE-3RD-PARTY.txt](https://github.com/opencv/opencv-python/blob/master/LICENSE-3RD-PARTY.txt) adresindedir.
 
-All wheels ship with [FFmpeg](http://ffmpeg.org) licensed under the [LGPLv2.1](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
+Tüm tekerlekler [LGPLv2.1](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) lisansı altında [FFmpeg](http://ffmpeg.org) ile birlikte gönderilir.
 
-Non-headless Linux wheels ship with [Qt 5](http://doc.qt.io/qt-5/lgpl.html) licensed under the [LGPLv3](http://www.gnu.org/licenses/lgpl-3.0.html).
+Başlıksız Linux tekerlekleri [LGPLv3](http://www.gnu.org/licenses/lgpl-3.0.html) altında lisanslanan [Qt 5](http://doc.qt.io/qt-5/lgpl.html) ile birlikte gönderilir.
 
-The packages include also other binaries. Full list of licenses can be found from [LICENSE-3RD-PARTY.txt](https://github.com/opencv/opencv-python/blob/master/LICENSE-3RD-PARTY.txt).
+Paketler diğer ikili dosyaları da içerir. Lisansların tam listesi [LICENSE-3RD-PARTY.txt](https://github.com/opencv/opencv-python/blob/master/LICENSE-3RD-PARTY.txt) adresinde bulunabilir.
 
-### Versioning
+### Sürüm Oluşturma
+``find_version.py`` betiği OpenCV kaynaklarından sürüm bilgilerini arar ve sürüm dizesine bu depoya özgü bir revizyon numarası da ekler. Sürüm bilgisini diğer bazı bayraklara ek olarak ``cv2`` altındaki ``version.py`` dosyasına kaydeder.
 
-``find_version.py`` script searches for the version information from OpenCV sources and appends also a revision number specific to this repository to the version string. It saves the version information to ``version.py`` file under ``cv2`` in addition to some other flags.
+### Sürümler
 
-### Releases
+Yeni bir etiket ana dala itildiğinde bir sürüm yapılır ve PyPI'a yüklenir. Bu etiketler paketleri birbirinden ayırır (bu repoda değişiklikler olabilir ancak OpenCV sürümü aynı kalır) ve sırayla artırılmalıdır. Uygulamada, sürüm numaraları şu şekilde görünür:
 
-A release is made and uploaded to PyPI when a new tag is pushed to master branch. These tags differentiate packages (this repo might have modifications but OpenCV version stays same) and should be incremented sequentially. In practice, release version numbers look like this:
+``cv_major.cv_minor.cv_revision.package_revision`` örneğin ``3.1.0.0``
 
-``cv_major.cv_minor.cv_revision.package_revision`` e.g. ``3.1.0.0``
+Ana dal OpenCV ana dal sürümlerini takip eder. 3.4 dalı OpenCV 3.4 hata düzeltme sürümlerini takip eder.
 
-The master branch follows OpenCV master branch releases. 3.4 branch follows OpenCV 3.4 bugfix releases.
+### Geliştirme yapıları
 
-### Development builds
+Bu deponun ana dalına yapılan her işlem derlenecektir. Olası derleme eserleri yerel sürüm tanımlayıcılarını kullanır:
 
-Every commit to the master branch of this repo will be built. Possible build artifacts use local version identifiers:
+``cv_major.cv_minor.cv_revision+git_hash_of_this_repo`` örneğin ``3.1.0+14a8d39``
 
-``cv_major.cv_minor.cv_revision+git_hash_of_this_repo`` e.g. ``3.1.0+14a8d39``
+Bu eserler PyPI'a yüklenemez ve yüklenmeyecektir.
 
-These artifacts can't be and will not be uploaded to PyPI.
+### Manylinux tekerlekleri
 
-### Manylinux wheels
+Linux tekerlekleri [manylinux2014](https://github.com/pypa/manylinux) kullanılarak oluşturulmuştur. Bu tekerlekler, eski bir glibc sürümüne karşı oluşturulduğundan, çoğu dağıtım (GNU C standart kütüphanesini kullanan) için kutudan çıkar çıkmaz çalışmalıdır.
 
-Linux wheels are built using [manylinux2014](https://github.com/pypa/manylinux). These wheels should work out of the box for most of the distros (which use GNU C standard library) out there since they are built against an old version of glibc.
+Varsayılan ``manylinux2014`` görüntüleri bazı OpenCV bağımlılıkları ile genişletilmiştir. Daha fazla bilgi için [Docker folder](https://github.com/skvark/opencv-python/tree/master/docker) adresine bakın.
 
-The default ``manylinux2014`` images have been extended with some OpenCV dependencies. See [Docker folder](https://github.com/skvark/opencv-python/tree/master/docker) for more info.
+### Desteklenen Python sürümleri
 
-### Supported Python versions
-
-Python 3.x compatible pre-built wheels are provided for the officially supported Python versions (not in EOL):
+Python 3.x uyumlu önceden oluşturulmuş tekerlekler, resmi olarak desteklenen Python sürümleri için sağlanmıştır (EOL'de değil):
 
 - 3.6
 - 3.7
@@ -222,9 +221,8 @@ Python 3.x compatible pre-built wheels are provided for the officially supported
 - 3.9
 - 3.10
 
-### Backward compatibility
+### Geriye dönük uyumluluk
 
-Starting from 4.2.0 and 3.4.9 builds the macOS Travis build environment was updated to XCode 9.4. The change effectively dropped support for older than 10.13 macOS versions.
+4.2.0 ve 3.4.9 sürümlerinden başlayarak macOS Travis derleme ortamı XCode 9.4'e güncellendi. Bu değişiklik, 10.13 macOS sürümünden daha eski sürümler için desteği etkin bir şekilde ortadan kaldırdı.
 
-Starting from 4.3.0 and 3.4.10 builds the Linux build environment was updated from `manylinux1` to `manylinux2014`. This dropped support for old Linux distributions.
-
+4.3.0 ve 3.4.10 sürümlerinden itibaren Linux derleme ortamı `manylinux1`den `manylinux2014`e güncellendi. Böylece eski Linux dağıtımları için destek kesildi.
